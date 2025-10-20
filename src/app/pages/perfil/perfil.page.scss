@@ -1,41 +1,52 @@
 ion-content {
   --background: #f5f6fa;
+  display: flex;
+  justify-content: center;
 }
 
 .perfil-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  width: 100%;
+  max-width: 700px; /* 👈 aumenta este valor si querés aún más ancho */
+  padding: 16px;
 }
 
 .section-title {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: #3b3b3b;
-  margin-bottom: 8px;
+  color: #2c2c2c;
+  margin-bottom: 16px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 ion-item {
   --background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
-  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  padding: 12px;
+  width: 100%;
+}
+
+.campo {
+  width: 100%;
 }
 
 .campo-titulo {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 500;
-  color: #666;
+  color: #555;
   margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 ion-input {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: #222;
   opacity: 0.9;
   pointer-events: none;
+  width: 100%;
 }
