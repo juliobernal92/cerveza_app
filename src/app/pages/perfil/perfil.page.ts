@@ -1,20 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { IonButton, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.page.html',
   styleUrls: ['./perfil.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [
+    IonHeader, IonToolbar, IonTitle, IonContent,
+    IonList, IonItem, IonLabel, IonInput, IonButton,
+    FormsModule, CommonModule
+  ]
 })
-export class PerfilPage implements OnInit {
+export class PerfilPage {
+  usuario = {
+    nombre: '',
+    email: '',
+    telefono: ''
+  };
 
-  constructor() { }
-
-  ngOnInit() {
+  guardarCambios() {
+    console.log('Datos guardados:', this.usuario);
   }
-
 }
