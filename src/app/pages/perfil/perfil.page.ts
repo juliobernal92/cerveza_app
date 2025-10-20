@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { IonButton, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonTitle, IonToolbar } from '@ionic/angular/standalone';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import {
+  IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem,
+  IonLabel, IonInput
+} from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,18 +12,24 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [
     IonHeader, IonToolbar, IonTitle, IonContent,
-    IonList, IonItem, IonLabel, IonInput, IonButton,
-    FormsModule, CommonModule
+    IonList, IonItem, IonLabel, IonInput,
+    CommonModule
   ]
 })
-export class PerfilPage {
+export class PerfilPage implements OnInit {
+
   usuario = {
     nombre: '',
     email: '',
     telefono: ''
   };
 
-  guardarCambios() {
-    console.log('Datos guardados:', this.usuario);
+  ngOnInit() {
+    // Datos precargados (solo frontend)
+    this.usuario = {
+      nombre: 'Diego Troche',
+      email: 'diego.troche@example.com',
+      telefono: '+595 981 123 456'
+    };
   }
 }

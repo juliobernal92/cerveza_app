@@ -5,22 +5,35 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-list>
-    <ion-item>
-      <ion-label position="stacked">Nombre</ion-label>
-      <ion-input [(ngModel)]="usuario.nombre"></ion-input>
-    </ion-item>
 
-    <ion-item>
-      <ion-label position="stacked">Correo</ion-label>
-      <ion-input [(ngModel)]="usuario.email" type="email"></ion-input>
-    </ion-item>
+  <div class="perfil-container">
 
-    <ion-item>
-      <ion-label position="stacked">Teléfono</ion-label>
-      <ion-input [(ngModel)]="usuario.telefono" type="tel"></ion-input>
-    </ion-item>
-  </ion-list>
+    <h2 class="section-title">Información personal</h2>
 
-  <ion-button expand="block" (click)="guardarCambios()">Guardar</ion-button>
+    <ion-list>
+
+      <ion-item lines="none">
+        <div class="campo">
+          <h3 class="campo-titulo">👤 Nombre completo</h3>
+          <ion-input [value]="usuario.nombre" readonly></ion-input>
+        </div>
+      </ion-item>
+
+      <ion-item lines="none">
+        <div class="campo">
+          <h3 class="campo-titulo">✉️ Correo electrónico</h3>
+          <ion-input [value]="usuario.email" readonly></ion-input>
+        </div>
+      </ion-item>
+
+      <ion-item lines="none">
+        <div class="campo">
+          <h3 class="campo-titulo">📞 Número de teléfono</h3>
+          <ion-input [value]="usuario.telefono" readonly></ion-input>
+        </div>
+      </ion-item>
+
+    </ion-list>
+  </div>
+
 </ion-content>
