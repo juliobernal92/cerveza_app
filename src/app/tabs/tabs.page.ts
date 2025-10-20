@@ -1,20 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { Component, EnvironmentInjector, inject } from '@angular/core';
+import {
+  IonTabs,
+  IonTabBar,
+  IonTabButton,
+  IonIcon,
+  IonLabel,
+} from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import {
+  beerOutline,
+  cartOutline,
+  personOutline,
+} from 'ionicons/icons'; // 👈 Importás los íconos que usás
 
 @Component({
   selector: 'app-tabs',
-  templateUrl: './tabs.page.html',
-  styleUrls: ['./tabs.page.scss'],
+  templateUrl: 'tabs.page.html',
+  styleUrls: ['tabs.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel],
 })
-export class TabsPage implements OnInit {
+export class TabsPage {
+  public environmentInjector = inject(EnvironmentInjector);
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    // 👇 Registrás los íconos que vas a usar
+    addIcons({
+      beerOutline,
+      cartOutline,
+      personOutline,
+    });
   }
-
 }
