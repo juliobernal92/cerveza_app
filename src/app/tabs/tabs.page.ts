@@ -11,7 +11,7 @@ import {
   beerOutline,
   cartOutline,
   personOutline,
-} from 'ionicons/icons'; // 👈 Importás los íconos que usás
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-tabs',
@@ -24,7 +24,6 @@ export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
 
   constructor() {
-    // 👇 Registrás los íconos que vas a usar
     addIcons({
       beerOutline,
       cartOutline,
