@@ -75,11 +75,9 @@
     </ion-card-content>
   </ion-card>
 
-  <!-- Payment Modal -->
   <div class="payment-modal-overlay" *ngIf="showPaymentModal" (click)="closePaymentModal()">
     <div class="payment-modal" (click)="$event.stopPropagation()">
       
-      <!-- Header -->
       <div class="modal-header">
         <h2>
           <ion-icon name="card-outline"></ion-icon>
@@ -90,14 +88,12 @@
         </ion-button>
       </div>
 
-      <!-- Content -->
       <div class="modal-content" *ngIf="!paymentSuccess">
         <div class="payment-total">
           <p>Total a pagar:</p>
           <h1>₲{{ formatPrice(getTotalPrice()) }}</h1>
         </div>
 
-        <!-- Payment Methods -->
         <div class="payment-methods">
           <div 
             class="payment-option" 
@@ -136,7 +132,6 @@
           </div>
         </div>
 
-        <!-- QR Code Display -->
         <div class="qr-container" *ngIf="showQR">
           <div class="qr-code">
             <div class="qr-pattern">
@@ -152,13 +147,11 @@
           </div>
         </div>
 
-        <!-- Payment Processing -->
         <div class="payment-processing" *ngIf="paymentProcessing">
           <ion-spinner name="crescent" color="warning"></ion-spinner>
           <p>Procesando pago...</p>
         </div>
 
-        <!-- Action Buttons -->
         <div class="modal-actions" *ngIf="!paymentProcessing">
           <ion-button 
             expand="block" 
@@ -178,7 +171,6 @@
         </div>
       </div>
 
-      <!-- Success Message -->
       <div class="payment-success" *ngIf="paymentSuccess">
         <div class="success-animation">
           <ion-icon name="checkmark-circle" color="success"></ion-icon>
