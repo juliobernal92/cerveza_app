@@ -1,17 +1,17 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Mi Perfil</ion-title>
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon name="person-circle-outline"></ion-icon>
+      Mi Perfil
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-
   <div class="perfil-container">
-
     <h2 class="section-title">Información personal</h2>
 
     <ion-list>
-
       <ion-item lines="none">
         <div class="campo">
           <h3 class="campo-titulo">👤 Nombre completo</h3>
@@ -32,8 +32,6 @@
           <ion-input [value]="usuario.telefono" readonly></ion-input>
         </div>
       </ion-item>
-
     </ion-list>
   </div>
-
 </ion-content>
