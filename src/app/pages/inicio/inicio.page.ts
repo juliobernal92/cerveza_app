@@ -58,13 +58,78 @@ import { Router } from '@angular/router';
 })
 export class InicioPage implements OnInit {
   products: Product[] = [
-    { id: 1, name: 'IPA Artesanal', price: 35000, type: 'IPA', alcohol: '6.5%', image: '🍺', description: 'Cerveza con notas cítricas' },
-    { id: 2, name: 'Lager Premium', price: 28000, type: 'Lager', alcohol: '4.8%', image: '🍺', description: 'Suave y refrescante' },
-    { id: 3, name: 'Stout Imperial', price: 42000, type: 'Stout', alcohol: '8.2%', image: '🍺', description: 'Oscura y cremosa' },
-    { id: 4, name: 'Pilsner Clásica', price: 24500, type: 'Pilsner', alcohol: '5.0%', image: '🍺', description: 'Dorada y ligera' },
-    { id: 5, name: 'Wheat Beer', price: 31500, type: 'Wheat', alcohol: '5.4%', image: '🍺', description: 'Trigo alemán' },
-    { id: 6, name: 'Pale Ale', price: 33500, type: 'Ale', alcohol: '5.8%', image: '🍺', description: 'Equilibrada y aromática' },
-  ];
+  {
+    id: 1,
+    name: 'Saison',
+    price: 32000,
+    type: 'Saison',
+    alcohol: '4.8%',
+    image: 'assets/img/saison.jpeg',
+    description:
+      'Una cerveza refrescante y especiada, originada en las granjas belgas. De perfil seco con notas de especias, frutas y su levadura distintiva. Marida con: Sandwich de Lomito, Chivito, Árabe de Pollo.',
+  },
+  {
+    id: 2,
+    name: 'Golden Ale',
+    price: 30000,
+    type: 'Golden Ale',
+    alcohol: '4.5%',
+    image: 'assets/img/golden.jpeg',
+    description:
+      'Cerveza ligera y de gran sabor, ideal para quienes se inician en el mundo artesanal. De color dorado, con notas maltosas y un leve amargor cítrico. Marida con: Pizza muzzarella, papas clásicas, Burger Purete.',
+  },
+  {
+    id: 3,
+    name: 'Altbier',
+    price: 31000,
+    type: 'Altbier',
+    alcohol: '5.0%',
+    image: 'assets/img/altbier.jpeg',
+    description:
+      'Cerveza al estilo alemán, de fermentación alta, color cobrizo y sabor maltoso con un toque lupulado. Marida con: Chivito, Parrilla Old Skool, Cheese Burger.',
+  },
+  {
+    id: 4,
+    name: 'American IPA',
+    price: 35000,
+    type: 'IPA',
+    alcohol: '6.5%',
+    image: 'assets/img/ipa.jpeg',
+    description:
+      'Cerveza pálida de alta graduación alcohólica, con amargor intenso y notas cítricas, frutales y herbales. Marida con: Papas cheddar, Burger Purete, Picada Old Skool.',
+  },
+  {
+    id: 5,
+    name: 'Luquenburger (Blonde Ale)',
+    price: 29000,
+    type: 'Blonde Ale',
+    alcohol: '5.2%',
+    image: 'assets/img/luque.jpeg',
+    description:
+      'Nuestra Luquenburg es una golden ale en honor a Luque. De cuerpo medio, balanceada y refrescante. Marida con: Sandwich de lomito, Pizza Catupollo, Papas con verdeo.',
+  },
+  {
+    id: 6,
+    name: 'Kölsch',
+    price: 31000,
+    type: 'Kölsch',
+    alcohol: '5.0%',
+    image: 'assets/img/kolsch.jpeg',
+    description:
+      'Cerveza de estilo alemán, dorada, ligera, refrescante y suavemente afrutada, con un amargor bien equilibrado. Marida con: Árabe mixto, Aros de cebolla, Nuggets de pollo.',
+  },
+  {
+    id: 7,
+    name: 'Porter',
+    price: 34000,
+    type: 'Porter',
+    alcohol: '5.5%',
+    image: 'assets/img/porter.jpeg',
+    description:
+      'Cerveza oscura de origen británico con sabores a malta tostada, café y cacao. De cuerpo medio a pleno y final suave. Marida con: Chivito, Burger Old Skool, Cheese Burger, Papas cheddar.',
+  },
+];
+
 
   searchTerm: string = '';
   filterType: string = 'all';
