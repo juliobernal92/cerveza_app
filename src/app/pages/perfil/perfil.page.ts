@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem,
-  IonLabel, IonInput
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonList,
+  IonItem,
+  IonInput,
+  IonButton,
+  IonIcon
 } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
 
@@ -11,13 +18,19 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./perfil.page.scss'],
   standalone: true,
   imports: [
-    IonHeader, IonToolbar, IonTitle, IonContent,
-    IonList, IonItem, IonLabel, IonInput,
-    CommonModule
-  ]
+    CommonModule,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonList,
+    IonItem,
+    IonInput,
+    IonButton,
+    IonIcon // 👈 necesario para mostrar <ion-icon>
+  ],
 })
 export class PerfilPage implements OnInit {
-
   usuario = {
     nombre: '',
     email: '',
@@ -25,7 +38,6 @@ export class PerfilPage implements OnInit {
   };
 
   ngOnInit() {
-    // Datos precargados (solo frontend)
     this.usuario = {
       nombre: 'Diego Troche',
       email: 'diego.troche@example.com',
