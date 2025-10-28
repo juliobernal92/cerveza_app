@@ -18,7 +18,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./perfil.page.scss'],
   standalone: true,
   imports: [
-<<<<<<< HEAD
     CommonModule,
     IonHeader,
     IonToolbar,
@@ -27,15 +26,8 @@ import { CommonModule } from '@angular/common';
     IonList,
     IonItem,
     IonInput,
-    IonButton,
-    IonIcon // 👈 necesario para mostrar <ion-icon>
+    IonIcon 
   ],
-=======
-    IonHeader, IonToolbar, IonTitle, IonContent,
-    IonList, IonItem, IonInput,
-    CommonModule
-  ]
->>>>>>> 01cec4b (actualizo inicio y tabs)
 })
 export class PerfilPage implements OnInit {
   usuario = {
