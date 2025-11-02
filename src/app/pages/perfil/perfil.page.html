@@ -1,14 +1,14 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="warning" class="brand-toolbar">
     <ion-title>
-      <ion-icon name="person-circle-outline"></ion-icon>
-      Mi Perfil
+      <ion-icon name="beer-outline"></ion-icon>
+      Yka'a Beer · Perfil
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <div class="perfil-container">
+<ion-content>
+  <div class="perfil-wrapper">
     <h2 class="section-title">Información personal</h2>
 
     <ion-list>
@@ -32,6 +32,13 @@
           <ion-input [value]="usuario.telefono" readonly></ion-input>
         </div>
       </ion-item>
+      <ion-item lines="none">
+        <div class="campo">
+          <h3 class="campo-titulo">📍 Dirección</h3>
+          <ion-input [value]="usuario.direccion" readonly></ion-input>
+        </div>
+      </ion-item>
+
     </ion-list>
   </div>
 </ion-content>

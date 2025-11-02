@@ -1,13 +1,12 @@
-/* 🔶 ENCABEZADO CON DEGRADADO NARANJA VISIBLE */
+/* === HEADER igual que INICIO (amarillo del tema) === */
 ion-header {
   position: relative;
   z-index: 10;
 
   ion-toolbar {
-    --background: none !important;
-    background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%) !important;
-    color: #fff !important;
-    border: none;
+    --background: var(--ion-color-warning, #fbbf24) !important;
+    background: var(--ion-color-warning, #fbbf24) !important;
+    color: var(--ion-color-warning-contrast, #000) !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     height: 60px;
     display: flex;
@@ -17,37 +16,36 @@ ion-header {
       display: flex;
       align-items: center;
       gap: 10px;
-      color: #fff !important;
       font-weight: bold;
       font-size: 1.2rem;
+      color: inherit !important;
 
       ion-icon {
         font-size: 1.8rem;
-        color: #fff !important;
+        color: inherit !important;
       }
     }
   }
 }
 
-/* 🔸 CONTENIDO PRINCIPAL */
+/* === CONTENIDO PRINCIPAL (mismo fondo, sin flex para no tapar header) === */
 ion-content {
   --background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
-  display: flex;
-  justify-content: center;
   padding: 1.5rem;
 }
 
-/* 🔸 CONTENEDOR CENTRAL */
+/* === CONTENEDOR CENTRAL (centrado real) === */
 .perfil-container {
   width: 100%;
   max-width: 750px;
+  margin: 0 auto; /* centra horizontalmente */
   background: rgba(255, 255, 255, 0.95);
   border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   padding: 1.5rem;
 }
 
-/* 🔸 TÍTULO DE SECCIÓN */
+/* === TÍTULO DE SECCIÓN === */
 .section-title {
   font-size: 1.2rem;
   font-weight: 700;
@@ -58,7 +56,7 @@ ion-content {
   text-align: center;
 }
 
-/* 🔸 CAMPOS DE PERFIL */
+/* === CAMPOS DE PERFIL === */
 ion-item {
   --background: #fff;
   border-radius: 12px;
@@ -91,7 +89,7 @@ ion-input {
   width: 100%;
 }
 
-/* 🔸 RESPONSIVO */
+/* === RESPONSIVO === */
 @media (max-width: 600px) {
   .perfil-container {
     max-width: 95%;
