@@ -4,6 +4,17 @@ Aplicación móvil desarrollada con **Ionic + Angular**, diseñada para la marca
 Permite explorar las diferentes variedades de cervezas, agregarlas al carrito, y simular un proceso de compra con distintos métodos de pago (QR, tarjeta y efectivo).
 
 ---
+<img width="443" height="903" alt="image" src="https://github.com/user-attachments/assets/4bfcf704-2847-440a-b104-9ecf2199c4fd" />
+
+<img width="446" height="903" alt="image" src="https://github.com/user-attachments/assets/d585b36d-2ce4-44ef-884f-4c967978cecf" />
+
+<img width="450" height="908" alt="image" src="https://github.com/user-attachments/assets/7507a7c2-f907-4621-9ae1-eab5466b9bcb" />
+
+<img width="447" height="906" alt="image" src="https://github.com/user-attachments/assets/1ba92916-96f4-47b1-8f63-dfa25d949855" />
+
+<img width="447" height="907" alt="image" src="https://github.com/user-attachments/assets/34fdf013-6471-43c3-b6ed-f4edb9dc4f3f" />
+<img width="449" height="910" alt="image" src="https://github.com/user-attachments/assets/b920b7da-a3a2-4b5b-971d-f269273b2b7c" />
+
 
 ## 🏠 Funcionalidades principales
 
@@ -114,16 +125,7 @@ Proyecto académico: Programación VI
 📜 Licencia
 Este proyecto es de uso educativo.
 © 2025 Yka’a Beer — Todos los derechos reservados.
-<img width="443" height="903" alt="image" src="https://github.com/user-attachments/assets/4bfcf704-2847-440a-b104-9ecf2199c4fd" />
 
-<img width="446" height="903" alt="image" src="https://github.com/user-attachments/assets/d585b36d-2ce4-44ef-884f-4c967978cecf" />
-
-<img width="450" height="908" alt="image" src="https://github.com/user-attachments/assets/7507a7c2-f907-4621-9ae1-eab5466b9bcb" />
-
-<img width="447" height="906" alt="image" src="https://github.com/user-attachments/assets/1ba92916-96f4-47b1-8f63-dfa25d949855" />
-
-<img width="447" height="907" alt="image" src="https://github.com/user-attachments/assets/34fdf013-6471-43c3-b6ed-f4edb9dc4f3f" />
-<img width="449" height="910" alt="image" src="https://github.com/user-attachments/assets/b920b7da-a3a2-4b5b-971d-f269273b2b7c" />
 
 
 
