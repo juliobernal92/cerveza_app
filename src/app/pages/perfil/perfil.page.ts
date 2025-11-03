@@ -12,8 +12,14 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [
     CommonModule,
-    IonHeader, IonToolbar, IonTitle, IonContent,
-    IonList, IonItem, IonInput, IonIcon
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonList,
+    IonItem,
+    IonInput,
+    IonIcon 
   ],
 })
 export class PerfilPage implements OnInit {

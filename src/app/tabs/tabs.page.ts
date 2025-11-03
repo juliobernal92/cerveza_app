@@ -1,4 +1,4 @@
-import { Component, EnvironmentInjector, inject } from '@angular/core';
+import { Component, EnvironmentInjector, inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {
   IonTabs,
   IonTabBar,
@@ -6,29 +6,29 @@ import {
   IonIcon,
   IonLabel,
 } from '@ionic/angular/standalone';
+import { RouterModule } from '@angular/router'; // 👈 Necesario para routerLink
 import { addIcons } from 'ionicons';
-import {
-  beerOutline,
-  cartOutline,
-  personOutline,
-} from 'ionicons/icons'; // 👈 Importás los íconos que usás
+import { homeOutline, cartOutline, personOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-tabs',
-  templateUrl: 'tabs.page.html',
-  styleUrls: ['tabs.page.scss'],
+  templateUrl: './tabs.page.html',
+  styleUrls: ['./tabs.page.scss'],
   standalone: true,
-  imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel],
+  imports: [
+    IonTabs,
+    IonTabBar,
+    IonTabButton,
+    IonIcon,
+    IonLabel,
+    RouterModule,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], // 
 })
 export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
 
   constructor() {
-    // 👇 Registrás los íconos que vas a usar
-    addIcons({
-      beerOutline,
-      cartOutline,
-      personOutline,
-    });
+    addIcons({ homeOutline, cartOutline, personOutline });
   }
 }

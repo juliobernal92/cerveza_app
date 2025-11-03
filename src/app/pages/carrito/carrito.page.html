@@ -1,13 +1,189 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>carrito</ion-title>
+  <ion-toolbar color="warning">
+    <ion-title>
+      <ion-icon name="cart-outline"></ion-icon>
+      Mi Carrito
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">carrito</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
+  <ion-card>
+    <ion-card-content>
+      <div *ngIf="cart.length === 0" class="empty-cart">
+        <ion-icon name="cart-outline" size="large" color="medium"></ion-icon>
+        <p>Tu carrito está vacío</p>
+        <ion-button (click)="goToProducts()" color="warning">
+          <ion-icon name="beer-outline" slot="start"></ion-icon>
+          Ver Productos
+        </ion-button>
+      </div>
+
+      <ion-list *ngIf="cart.length > 0">
+        <ion-item *ngFor="let item of cart">
+          <div class="cart-item-image" slot="start">{{ item.image }}</div>
+          
+          <ion-label>
+            <h2>{{ item.name }}</h2>
+            <p>₲{{ formatPrice(item.price) }} c/u</p>
+            <p class="subtotal"><strong>Subtotal: ₲{{ formatPrice(item.price * item.quantity) }}</strong></p>
+          </ion-label>
+
+          <div class="quantity-controls" slot="end">
+            <ion-button size="small" fill="outline" (click)="updateQuantity(item.id, -1)">
+              <ion-icon name="remove-outline"></ion-icon>
+            </ion-button>
+            <span class="quantity">{{ item.quantity }}</span>
+            <ion-button size="small" fill="outline" (click)="updateQuantity(item.id, 1)">
+              <ion-icon name="add-outline"></ion-icon>
+            </ion-button>
+            <ion-button size="small" color="danger" (click)="removeFromCart(item.id)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-item>
+      </ion-list>
+
+      <div *ngIf="cart.length > 0" class="cart-summary">
+        <ion-item lines="none">
+          <ion-label>
+            <h2>Total de productos:</h2>
+          </ion-label>
+          <ion-note slot="end">{{ getTotalItems() }} unidades</ion-note>
+        </ion-item>
+
+        <ion-item lines="none" class="total-item">
+          <ion-label>
+            <h1><strong>Total:</strong></h1>
+          </ion-label>
+          <ion-note slot="end" color="warning">
+            <h1><strong>₲{{ formatPrice(getTotalPrice()) }}</strong></h1>
+          </ion-note>
+        </ion-item>
+
+        <ion-button expand="block" color="warning" (click)="openPaymentModal()">
+          <ion-icon name="card-outline" slot="start"></ion-icon>
+          Proceder al Pago
+        </ion-button>
+
+        <ion-button expand="block" fill="outline" (click)="goToProducts()">
+          <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
+          Seguir Comprando
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="payment-modal-overlay" *ngIf="showPaymentModal" (click)="closePaymentModal()">
+    <div class="payment-modal" (click)="$event.stopPropagation()">
+      
+      <div class="modal-header">
+        <h2>
+          <ion-icon name="card-outline"></ion-icon>
+          Método de Pago
+        </h2>
+        <ion-button fill="clear" (click)="closePaymentModal()">
+          <ion-icon name="close-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="modal-content" *ngIf="!paymentSuccess">
+        <div class="payment-total">
+          <p>Total a pagar:</p>
+          <h1>₲{{ formatPrice(getTotalPrice()) }}</h1>
+        </div>
+
+        <div class="payment-methods">
+          <div 
+            class="payment-option" 
+            [class.selected]="selectedPaymentMethod === 'qr'"
+            (click)="selectPaymentMethod('qr')">
+            <ion-icon name="qr-code-outline"></ion-icon>
+            <div>
+              <h3>Pago QR</h3>
+              <p>Escanea y paga</p>
+            </div>
+            <div class="radio-circle" [class.selected]="selectedPaymentMethod === 'qr'"></div>
+          </div>
+
+          <div 
+            class="payment-option" 
+            [class.selected]="selectedPaymentMethod === 'card'"
+            (click)="selectPaymentMethod('card')">
+            <ion-icon name="card-outline"></ion-icon>
+            <div>
+              <h3>Tarjeta</h3>
+              <p>Débito o Crédito</p>
+            </div>
+            <div class="radio-circle" [class.selected]="selectedPaymentMethod === 'card'"></div>
+          </div>
+
+          <div 
+            class="payment-option" 
+            [class.selected]="selectedPaymentMethod === 'cash'"
+            (click)="selectPaymentMethod('cash')">
+            <ion-icon name="cash-outline"></ion-icon>
+            <div>
+              <h3>Efectivo</h3>
+              <p>Pago en tienda</p>
+            </div>
+            <div class="radio-circle" [class.selected]="selectedPaymentMethod === 'cash'"></div>
+          </div>
+        </div>
+
+        <div class="qr-container" *ngIf="showQR">
+          <div class="qr-code">
+            <div class="qr-pattern">
+              <div class="qr-grid">
+                <div class="qr-block" *ngFor="let block of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]"></div>
+              </div>
+            </div>
+            <p class="qr-instruction">Escanea este código QR con tu app de pagos</p>
+            <div class="qr-info">
+              <ion-icon name="shield-checkmark-outline"></ion-icon>
+              <span>Código de pago seguro</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="payment-processing" *ngIf="paymentProcessing">
+          <ion-spinner name="crescent" color="warning"></ion-spinner>
+          <p>Procesando pago...</p>
+        </div>
+
+        <div class="modal-actions" *ngIf="!paymentProcessing">
+          <ion-button 
+            expand="block" 
+            color="warning" 
+            size="large"
+            [disabled]="!selectedPaymentMethod"
+            (click)="processPayment()">
+            <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+            Confirmar Pago
+          </ion-button>
+          <ion-button 
+            expand="block" 
+            fill="outline" 
+            (click)="closePaymentModal()">
+            Cancelar
+          </ion-button>
+        </div>
+      </div>
+
+      <div class="payment-success" *ngIf="paymentSuccess">
+        <div class="success-animation">
+          <ion-icon name="checkmark-circle" color="success"></ion-icon>
+        </div>
+        <h2>¡Pago Exitoso!</h2>
+        <p>Tu pedido ha sido procesado correctamente</p>
+        <div class="success-amount">
+          <span>Monto pagado:</span>
+          <strong>₲{{ formatPrice(getTotalPrice()) }}</strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </ion-content>

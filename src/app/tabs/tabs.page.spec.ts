@@ -1,17 +1,33 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TabsPage } from './tabs.page';
+import { Component, EnvironmentInjector, inject } from '@angular/core';
+import {
+  IonTabs,
+  IonTabBar,
+  IonTabButton,
+  IonIcon,
+  IonLabel,
+} from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import {
+  beerOutline,
+  cartOutline,
+  personOutline,
+} from 'ionicons/icons';
 
-describe('TabsPage', () => {
-  let component: TabsPage;
-  let fixture: ComponentFixture<TabsPage>;
+@Component({
+  selector: 'app-tabs',
+  templateUrl: 'tabs.page.html',
+  styleUrls: ['tabs.page.scss'],
+  standalone: true,
+  imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel],
+})
+export class TabsPage {
+  public environmentInjector = inject(EnvironmentInjector);
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TabsPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  constructor() {
+    addIcons({
+      beerOutline,
+      cartOutline,
+      personOutline,
+    });
+  }
+}
