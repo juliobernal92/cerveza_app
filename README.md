@@ -41,42 +41,10 @@ Permite explorar las diferentes variedades de cervezas, agregarlas al carrito, y
 
 ## 🧱 Estructura del proyecto
 
-src/
-├── app/
-│ ├── pages/
-│ │ ├── inicio/
-│ │ │ ├── inicio.page.html
-│ │ │ ├── inicio.page.ts
-│ │ │ ├── inicio.page.scss
-│ │ │ └── inicio.page.spec.ts
-│ │ ├── carrito/
-│ │ │ ├── carrito.page.html
-│ │ │ ├── carrito.page.ts
-│ │ │ ├── carrito.page.scss
-│ │ │ └── carrito.page.spec.ts
-│ │ └── home/
-│ │ ├── home.page.html
-│ │ ├── home.page.ts
-│ │ ├── home.page.scss
-│ │ └── home.page.spec.ts
-│ ├── services/
-│ │ └── cart.service.ts
-│ ├── app.module.ts
-│ └── app-routing.module.ts
-├── assets/
-│ ├── img/
-│ │ ├── altbier.jpeg
-│ │ ├── golden.jpeg
-│ │ ├── ipa.jpeg
-│ │ ├── kolsch.jpeg
-│ │ ├── porter.jpeg
-│ │ ├── saison.jpeg
-│ │ ├── luque.jpeg
-│ │ └── logo.png
-└── index.html
+<img width="285" height="895" alt="image" src="https://github.com/user-attachments/assets/dfce36f4-4ef3-42ee-8ea3-9a8624a081f0" />
 
-yaml
-Copiar código
+
+
 
 ---
 
